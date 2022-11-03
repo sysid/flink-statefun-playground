@@ -1,6 +1,8 @@
+.envrc
 target/
 *.iml
 .idea/
 venv/*
+.venv/*
 __pycahe__/*
 .DS_Store
