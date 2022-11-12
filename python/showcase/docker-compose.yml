@@ -41,7 +41,7 @@ services:
     command:
       - redpanda start
       - --smp 1
-      - --memory 512M
+      - --memory 412M
       - --overprovisioned
       - --set redpanda.default_topic_replications=1
       - --set redpanda.auto_create_topics_enabled=true

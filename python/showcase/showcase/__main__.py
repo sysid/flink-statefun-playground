@@ -92,7 +92,7 @@ def types(context, message: Message):
     else:
         val = None
 
-    print(f"I've got a message with {val} as payload!")
+    print(f"{context.caller=}: {context.address=}I've got a message with {val} as payload!")
 
 
 #
@@ -248,6 +248,14 @@ async def serving(context, message: Message):
     # will be also equal to that name (context.address.id == name).
 
     print(f"hello {name}! I've seen you {seen} times!", flush=True)
+
+    context.send(
+        message_builder(
+            target_typename="showcase/types",
+            target_id="1",
+            str_value=f"xxxxxxxx"
+        )
+    )
 
 
 # Serving cont'
