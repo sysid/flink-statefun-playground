@@ -258,6 +258,21 @@ async def serving(context, message: Message):
     )
 
 
+@functions.bind("showcase/serving2", specs=[ValueSpec(name="seen2", type=IntType)])
+async def serving(context, message: Message):
+    seen2 = context.storage.seen2 or 0
+    seen2 += 1
+    context.storage.seen2 = seen2
+
+    name = message.as_string()
+
+    # in this example, the id part of the currently executing function
+    # will be also equal to that name (context.address.id == name).
+
+    print(f"hello {name}! I've seen you {seen2} times!", flush=True)
+
+
+
 # Serving cont'
 # ============
 # create a request-reply handler for the registered functions, which understands how to
